@@ -1,0 +1,170 @@
+/* Variables */
+:root {
+  /* Colors */
+  --clr-primary-900: hsl(156, 42%, 18%);
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-100: hsl(30, 38%, 92%);
+
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-800: hsl(228, 12%, 48%);
+  --clr-neutral-000: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --fs-primary: 0.875rem;
+  --fs-large: 2rem;
+  --fs-small: 0.8rem;
+  --ff-body: "Montserrat", sans-serif;
+  --ff-heading: "Fraunces", serif;
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+/* Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  background-color: var(--clr-primary-100);
+  color: var(--clr-neutral-800);
+  display: grid;
+  place-content: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-primary);
+  min-height: 100svh;
+}
+
+h1,
+.current_price {
+  font-family: var(--ff-heading);
+}
+
+article {
+  display: grid;
+  background-color: var(--clr-neutral-000);
+  max-width: 345px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+section {
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--fs-primary);
+  justify-content: space-between;
+}
+
+.category {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: var(--fs-small);
+}
+
+h1 {
+  color: var(--clr-neutral-900);
+  font-size: var(--fs-large);
+  line-height: var(--fs-large);
+}
+
+.description {
+  line-height: calc(var(--fs-primary) * 1.675);
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.current_price {
+  color: var(--clr-primary-400);
+  font-size: var(--fs-large);
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: var(--clr-primary-400);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--clr-neutral-000);
+  padding: var(--fs-primary);
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    background-image: url(../../images/icon-cart.svg);
+    width: 15px;
+    height: 16px;
+  }
+
+  &:focus-visible,
+  &:hover {
+    background-color: var(--clr-primary-900);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  article {
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+  }
+
+  section {
+    padding: 2rem;
+  }
+}
